@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    readImage("demo.bmp");
+    readImage("demo1.bmp");
 
     return 0;
 }

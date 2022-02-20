@@ -12,7 +12,7 @@ unsigned char fileHeader[fileHeaderSize];
 unsigned char infoHeader[infoHeaderSize];
 
 //float pixels[10000000][3]={0};
-double pixels[10000000][3]={0};
+int pixels[10000000][3]={0};
 
 
 void readImage(char* path){
@@ -40,9 +40,9 @@ void readImage(char* path){
             unsigned char color[3];
             file.read(reinterpret_cast<char*>(color),3);
 
-            pixels[i*width+j][0] = static_cast<float>(color[2])/255.0f;
-            pixels[i*width+j][1] = static_cast<float>(color[1])/255.0f;
-            pixels[i*width+j][2] = static_cast<float>(color[0])/255.0f;
+            pixels[i*width+j][0] = static_cast<float>(color[2]);//   /255.0f;
+            pixels[i*width+j][1] = static_cast<float>(color[1]);//   /255.0f;
+            pixels[i*width+j][2] = static_cast<float>(color[0]);//   /255.0f;
 
           //  cout<<j<<endl;
         }
@@ -51,7 +51,14 @@ void readImage(char* path){
 
     }
 
-    cout<<pixels[18][0]<<" "<<pixels[18][1]<<" "<<pixels[18][2];
+    for(int i=0;i<width;i++){
+        for(int j=0;j<height;j++){
+           cout<<pixels[i*width+j][0]<<" "<<pixels[i*width+j][1]<<" "<<pixels[i*width+j][2]<<"    ";
+        }
+        cout<<endl;
+    }
+
+
     file.close();
 }
 
